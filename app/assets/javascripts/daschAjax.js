@@ -13,7 +13,7 @@ var makeMetroCommuterRequest= function(callback) {
 		method: "GET",
 		url: "/metro",
 		data: {
-			lat: latitude
+			lat: latitude,
 			lng: longitude
 		},
 		success: function(data) {
@@ -28,11 +28,12 @@ var makeBusCommuterRequest= function(callback) {
 		method: "GET",
 		url: "/buses",
 		data: {
-			lat: latitude
-			lng: longitude
+			lat: lat,
+			lng: lng
 		},
 		success: function(data) {
 			callback(data)
+			console.log(lat, lng)
 		}
 	})
 }
@@ -43,8 +44,8 @@ var makeBikesCommuterRequest= function(callback) {
 		method: "GET",
 		url: "/bikes",
 		data: {
-			lat: latitude
-			lng: longitude
+			lat: lat,
+			long: lng
 		},
 		success: function(data) {
 			callback(data)
@@ -190,6 +191,6 @@ $(document).on("ready", function(){
 
   console.log("ready")
 
-  
+  navigator.geolocation.getCurrentPosition(geopositionHandler)
 
 })
