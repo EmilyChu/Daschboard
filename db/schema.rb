@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150309192620) do
+ActiveRecord::Schema.define(version: 20150309211834) do
+
+  create_table "metro_stations", force: :cascade do |t|
+    t.string   "station_code"
+    t.string   "station_name"
+    t.integer  "longitude"
+    t.integer  "latitude"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "user_bike_stations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_bike_stations", ["user_id"], name: "index_user_bike_stations_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
