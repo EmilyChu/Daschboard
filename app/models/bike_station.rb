@@ -24,6 +24,6 @@ class BikeStation
   end
 
   def distance_to lat, long
-    Haversine.distance(@lat, @long, lat, long).to_miles
+    Haversine.distance(@lat, @long, Float(lat), Float(long)).to_miles
   end
 end
