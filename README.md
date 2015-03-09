@@ -4,7 +4,7 @@
 
 ## API reference
 
-``
+```
 GET /metro
 - params: lat, long
 - returns a list of stations, where each station looks like:
