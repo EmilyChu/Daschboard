@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.localContainer {
+	width: 100%;
+	height: 65vh;
+}
+
+.localMetroStation {
+	width: 33%;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	display: inline-block;
+}
+
+.localMidContainer {
+	width: 33%;
+	display: inline-block;
+}
+
+.titleContainer {
+	width: 100%;
+	height: 25vh;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.localBikeStation {
+	width: 100%;
+	height: 40vh;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+.bikesAvailable {
+
+}
+
+.docksAvailable {
+
+}
+
+.number {
+
+}
+
+.address {
+
+}
+
+.localBusContainer {
+	width: 33%;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	display: inline-block;
+}
+
+.favContainer {
+	width: 100%;
+	height: 35vh;
+	position: relative;
+
+}
+
+.favMetroContainer {
+	width: 33%;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	display: inline-block;
+}
+
+.favBikeContainer {
+	width: 33%;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	display: inline-block;
+}
+
+.favBusContainer {
+	width: 33%;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	display: inline-block;	
+}

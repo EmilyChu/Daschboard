@@ -14,7 +14,7 @@ var makeMetroCommuterRequest= function(callback) {
 		url: "/metro",
 		data: {
 			lat: latitude,
-			lng: longitude
+			long: longitude
 		},
 		success: function(data) {
 			callback(data)
@@ -29,11 +29,10 @@ var makeBusCommuterRequest= function(callback) {
 		url: "/buses",
 		data: {
 			lat: lat,
-			lng: lng
+			long: lng
 		},
 		success: function(data) {
 			callback(data)
-			console.log(lat, lng)
 		}
 	})
 }
@@ -179,18 +178,5 @@ var deleteFavoriteBike= function(location, callback) {
 	})
 }
 
-
-
-
-
-
-
-
-
-$(document).on("ready", function(){
-
-  console.log("ready")
-
   navigator.geolocation.getCurrentPosition(geopositionHandler)
 
-})

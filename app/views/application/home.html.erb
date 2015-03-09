@@ -6,8 +6,47 @@
 		<%= javascript_include_tag 'application' %>
 	</head>
 	<body>
-		
-		<script type="x-handlebars-template" id="commuterTemplate">
+		<div class="localContainer" id="localContainer">
+			<div id="localMetroContainer">
+			</div>
+			<div class="localMidContainer" id="localMidContainer">
+				<div class="titleContainer" id="titleContainer">
+				</div>
+				<div class="localBikeContainer" id="localBikeContainer">
+				</div>
+			</div>
+			<div class="localBusContainer" id="localBusContainer">
+			</div>
+		</div>
+		<div class="favContainer" id="favContainer">
+			<div class="favMetroContainer" id="favMetroContainer">
+			</div>
+			<div class="favBikeContainer" id="favBikeContainer">
+			</div>
+			<div class="favBusContainer" id="favBusContainer">
+			</div>
+		</div>		
+		<script type="x-handlebars-template" id="localMetroTemplate">
+
+		</script>
+		<script type="x-handlebars-template" id="localBikeTemplate">
+			<div class="localBikeStation">
+				Station location: <div class="address">{{ address }}</div>
+			</div>
+			<div class="bikesAvailable">
+				Bikes available: <div class="number">{{ availableBikes }}</div>
+			</div>
+			<div class="docksAvailable">
+				Docks available: <div class="number">{{ availableDocks }}</div>
+			</div>
+		</script>
+		<script type="x-handlebars-template" id="localBusTemplate">
+		</script>
+		<script type="x-handlebars-template" id="favMetroTemplate">
+		</script>
+		<script type="x-handlebars-template" id="favBikeTemplate">
+		</script>
+		<script type="x-handlebars-template" id="favBusTemplate">
 		</script>
 	</body>
 </html>
