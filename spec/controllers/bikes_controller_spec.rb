@@ -17,4 +17,30 @@ describe BikesController do
     expect(nearest.keys).to eq %w( location available open )
     expect(nearest["location"]).to eq "23rd & Crystal Dr"
   end
+
+  it "allows a user to favorite and unfavorite stations" do
+    get :favorite
+    json = JSON.parse response.body
+    expect(json.count).to eq 0
+
+    patch :favorite, location: "10th & U St NW"
+    expect(response.code).to eq 200
+
+    get :favorite
+    json = JSON.parse response.body
+    expect(json.count).to eq 1
+    expect(json.first["location"]).to eq "10th & U St NW"
+
+    patch :unfavorite, location: "10th & U St NW"
+    expect(response.code).to eq 200
+
+    get :favorite
+    json = JSON.parse response.body
+    expect(json.count).to eq 0
+  end
+
+  it "rejects invalid favorite requests" do
+    patch :favorite, location: "Not an actual location"
+    expect(response.code).to eq 422
+  end
 end
