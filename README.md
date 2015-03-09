@@ -1,5 +1,7 @@
 # Daschboard
 
+By: Team 𐤀
+
 ![Daschboard](http://dachshundfanclub.com/wp-content/uploads/2014/03/skate.jpg)
 
 ## API reference
