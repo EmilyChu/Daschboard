@@ -1,5 +1,4 @@
 class MetroStation < ActiveRecord::Base
-  attr_reader :lat, :long
 
   def self.save_all_from_api!
     stations = MetroInfo.stations
@@ -10,23 +9,19 @@ class MetroStation < ActiveRecord::Base
   end
 
   def distance_to lat, long
-    Haversine.distance(@lat, @long, Float(lat), Float(long)).to_miles
+    Haversine.distance(self.latitude, self.longitude, Float(lat), Float(long)).to_miles
   end
 
   def self.closest_to opts={}
     lat, long = opts.fetch(:lat), opts.fetch(:long)
     limit = opts[:limit] || 10
 
+    available = MetroStation.all.sort_by { |m| m.distance_to lat, long} 
 
-
-    distance_to(lat, long)
-
-    available = MetroStation.where(distance_to lat, long).order(:asc)
     if opts[:radius]
       available.reject! { |m| m.distance_to(lat, long) > opts[:radius] }
     end
-      available.first limit
+    available.first limit
   end
 
 end
-

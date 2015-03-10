@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20150309202339) do
   create_table "metro_stations", force: :cascade do |t|
     t.string   "station_code"
     t.string   "station_name"
-    t.integer  "longitude"
-    t.integer  "latitude"
+    t.decimal  "longitude"
+    t.decimal  "latitude"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
