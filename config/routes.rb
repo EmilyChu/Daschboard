@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  patch '/metros/:station/favorite'   => 'metros#favorite'
+  patch '/metros/:station/unfavorite' => 'metros#unfavorite'
+
   get '/buses' => 'buses#index'
 
   get   '/bikes'                      => 'bikes#index'

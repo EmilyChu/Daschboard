@@ -1,8 +1,9 @@
 class MetroStation < ActiveRecord::Base
+  has_many :user_metro_stations
 
   include HTTParty
   base_uri "https://api.wmata.com/Rail.svc/json"
-  API_KEY="kfgpmgvfgacx98de9q3xazww"
+  API_KEY="kfgpmgvfgacx98de9q3xazww" # FIXME!
 
   def self.save_all_from_api!
     stations = get "/jStations?LineCode&api_key=#{API_KEY}"

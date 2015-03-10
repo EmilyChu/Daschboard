@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
 
   has_many :user_bike_stations
 
+  has_many :user_metro_stations
+  has_many :favorite_metros, through: :user_metro_stations, source: :metro_station
+
   def favorite_bike_stations
     favorite_locations = user_bike_stations.pluck :location
     BikeShare.stations.select { |s| favorite_locations.include? s.location }
