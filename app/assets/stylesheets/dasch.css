@@ -41,6 +41,12 @@
 	border-color: black;
 }
 
+.bikeHeader {
+	font-family: Helvetica;
+	color: #FFCB00;
+	padding: 20px;
+}
+
 .bikesAvailable {
 
 }
@@ -81,13 +87,27 @@
 	border-color: black;
 }
 
-.favBikeContainer {
+.bikeContainer {
 	width: 33%;
 	height: 100%;
 	display: inline-block;
-	border-style: solid;
-	border-width: 1px;
-	border-color: black;
+	background-color: #EF2E2F;
+}
+
+.favBikeContainer {
+	height: 80%;
+	background-color: white;
+	font-family: Helvetica;
+	font-size: 16px;
+	line-height: 1.5;
+	margin-left: 20px;
+	margin-right: 20px;
+	padding: 10px;
+	overflow-y: scroll;
+}
+
+.station-view {
+	overflow-y: scroll;
 }
 
 .favBusContainer {

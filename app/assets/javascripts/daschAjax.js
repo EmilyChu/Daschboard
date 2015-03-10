@@ -182,10 +182,13 @@ var deleteFavoriteBike= function(location, callback) {
 
 var instantiateViews = function(data) {
 
-	console.log(data)
+	views.station = new LocalBikeStationInfo({
+		address: "23rd & Crystal Dr",
+		availableBikes: 5,
+		availableDocks: 12
+	})
 
-	views.station = new LocalBikeStationInfo()
-	$("#localBikeContainer").append(views.station.$el)
+	$("#favBikeContainer").append(views.station.$el)
 
 }
 

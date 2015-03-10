@@ -1,4 +1,5 @@
-var templates;
+var templates = {}
+
 var views = {}
 
 var LocalBikeStationInfo = Backbone.View.extend({
@@ -42,8 +43,13 @@ $(document).on("ready", function(){
 		favBus: Handlebars.compile( $("#favBusTemplate").text() ),
 	}
 
+	instantiateViews()
+
+})
+/*
 	makeBikesCommuterRequest(function(data){
 		console.log(data)
 	})
 
 })
+*/
