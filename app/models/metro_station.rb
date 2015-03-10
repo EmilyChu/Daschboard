@@ -1,24 +1,32 @@
 class MetroStation < ActiveRecord::Base
-
-  include HTTParty
-  base_uri "https://api.wmata.com/Rail.svc/json"
-  API_KEY="kfgpmgvfgacx98de9q3xazww"
+  attr_reader :lat, :long
 
   def self.save_all_from_api!
-    stations = get "/jStations?LineCode&api_key=#{API_KEY}"
-    data = stations["Stations"]
-    data.each do |d|   # d["Name"]
-      MetroStation.where(station_code: d["Code"], station_name: d["Name"], longitude: d["Lon"], latitude: d["Lat"]).first_or_create!
+    stations = MetroInfo.stations
+    stations.each do |s|
+      MetroStation.where(station_code: s["Code"], station_name: s["Name"], 
+      longitude: s["Lon"], latitude: s["Lat"]).first_or_create!
     end
   end
 
-  # def initialize
-  #   # lat, long
-  #   # lines that actually go through this station
-  # end
+  def distance_to lat, long
+    Haversine.distance(@lat, @long, Float(lat), Float(long)).to_miles
+  end
+
+  def self.closest_to opts={}
+    lat, long = opts.fetch(:lat), opts.fetch(:long)
+    limit = opts[:limit] || 10
+
+
+
+    distance_to(lat, long)
+
+    available = MetroStation.where(distance_to lat, long).order(:asc)
+    if opts[:radius]
+      available.reject! { |m| m.distance_to(lat, long) > opts[:radius] }
+    end
+      available.first limit
+  end
 
 end
-
-# HTTParty.get "https://api.wmata.com/Rail.svc/json/jStationInfo?StationCode=C15&api_key=kfgpmgvfgacx98de9q3xazww"
-# HTTParty.get "https://api.wmata.com/Rail.svc/json/jStations?LineCode&api_key=kfgpmgvfgacx98de9q3xazww"
 

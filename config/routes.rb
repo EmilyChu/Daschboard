@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   root 'application#home'
 
+  get '/metro' => 'metro#index'
+
 end
