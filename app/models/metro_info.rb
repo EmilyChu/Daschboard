@@ -1,15 +1,15 @@
 class MetroInfo
   include HTTParty
-  base_uri "https://api.wmata.com/Rail.svc/json"
+  base_uri "https://api.wmata.com"
   API_KEY="kfgpmgvfgacx98de9q3xazww"
 
   def self.stations
-    response = get "/jStations?LineCode&api_key=#{API_KEY}"
+    response = get "/Rail.svc/json/jStations?LineCode&api_key=#{API_KEY}"
     stations = response["Stations"]
   end
 
   def self.arrival (station_code) # change to splat? take multiple station codes
-    response = get "/GetPrediction/#{station_code}?api_key=#{API_KEY}"  
+    response = get "/StationPrediction.svc/json/GetPrediction/#{station_code}?api_key=#{API_KEY}"  
     train = response["Trains"]
     info = []
     train.each do |t|
@@ -17,6 +17,9 @@ class MetroInfo
       info<<x
     end
     info
+  # rescue
+  #   binding.pry
+  #   raise
   end
 
 end
