@@ -24,12 +24,29 @@ class MetroStation < ActiveRecord::Base
     available.first limit
   end
 
+  # def self.next lat, long
+  #   options = MetroStation.closest_to({lat: lat, long: long})
+  #   stations = options.map { |o| o.station_code }
+  #   stations.map { |s| MetroInfo.arrival(s)}
+  # end
+
   def self.next lat, long
+    hash = {}
+    stations =[]
     options = MetroStation.closest_to({lat: lat, long: long})
-    stations = options.map { |o| o.station_code }
-    stations.map { |s| MetroInfo.arrival(s)}
+    options.each do |o|
+      x = {name: o.station_name, code: o.station_code}
+      stations<<x 
+    end
+    stations.each do |one|
+      MetroInfo.arrival(one[:code])
+      arrivals = MetroInfo.arrival(one[:code])
+      hash[one[:name]] = arrivals
+    end
+    return hash
   end
 
 end
 
 #MetroStation.closest_to lat: 38.8539240, long: -77.0491380, radius: 0.2
+
