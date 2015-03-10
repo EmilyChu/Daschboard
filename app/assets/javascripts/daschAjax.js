@@ -39,6 +39,8 @@ var makeBusCommuterRequest= function(callback) {
 
 var makeBikesCommuterRequest= function(callback) {
 
+	console.log(lat, lng)
+
 	$.ajax({
 		method: "GET",
 		url: "/bikes",
@@ -178,5 +180,14 @@ var deleteFavoriteBike= function(location, callback) {
 	})
 }
 
-  navigator.geolocation.getCurrentPosition(geopositionHandler)
+var instantiateViews = function(data) {
+
+	console.log(data)
+
+	views.station = new LocalBikeStationInfo()
+	$("#localBikeContainer").append(views.station.$el)
+
+}
+
+navigator.geolocation.getCurrentPosition(geopositionHandler)
 
