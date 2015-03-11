@@ -13,8 +13,8 @@ var makeMetroCommuterRequest= function(callback) {
 		method: "GET",
 		url: "/metro",
 		data: {
-			lat: latitude,
-			long: longitude
+			lat: lat,
+			long: lng
 		},
 		success: function(data) {
 			callback(data)
@@ -182,13 +182,51 @@ var deleteFavoriteBike= function(location, callback) {
 
 var instantiateViews = function(data) {
 
-	views.station = new LocalBikeStationInfo({
+	views.localMetro = new LocalMetroStationInfo({
+		station: "Crystal City",
+		line: "Yellow",
+		arrival: 4,
+		destination: "Ft. Totten"
+	})
+	$("#localMetroContainer").append(views.localMetro.$el)
+
+	views.localBike = new LocalBikeStationInfo({
 		address: "23rd & Crystal Dr",
 		availableBikes: 5,
 		availableDocks: 12
 	})
+	$("#localBikeContainer").append(views.localBike.$el)
 
-	$("#favBikeContainer").append(views.station.$el)
+	views.localBus = new LocalBusRouteInfo({
+		stop: "2nd & Missouri",
+		route: "E2",
+		arrival: 12,
+		destination: "Ivy City"		
+	})
+	$("#flocalBusContainer").append(views.localBus.$el)
+
+	views.favMetro = new FavMetroStationInfo({
+		station: "Crystal City",
+		line: "Yellow",
+		arrival: 4,
+		destination: "Ft. Totten"
+	})
+	$("#favMetroContainer").append(views.favMetro.$el)
+
+	views.favBike = new FavBikeStationInfo({
+		address: "23rd & Crystal Dr",
+		availableBikes: 5,
+		availableDocks: 12
+	})
+	$("#favBikeContainer").append(views.favBike.$el)
+
+	views.favBus = new FavBusStopInfo({
+		stop: "2nd & Missouri",
+		route: "E2",
+		arrival: 12,
+		destination: "Ivy City"
+	})
+	$("#favBusContainer").append(views.favBus.$el)		
 
 }
 

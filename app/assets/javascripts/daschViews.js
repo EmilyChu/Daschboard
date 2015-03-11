@@ -2,10 +2,25 @@ var templates = {}
 
 var views = {}
 
+var LocalMetroStationInfo = Backbone.View.extend({
+
+	tagName: "div",
+
+	className: "station-view",
+
+	initialize: function(data) {
+		this.render(data)
+	},
+
+	render: function(data) {
+		this.$el.html( templates.localMetro(data) )
+	},
+})
+
 var LocalBikeStationInfo = Backbone.View.extend({
 
 	events: {
-		"click .update-button": "updateCoordinates"
+		"click .favorite-button": "favBike"
 	},
 
 	tagName: "div",
@@ -17,17 +32,70 @@ var LocalBikeStationInfo = Backbone.View.extend({
 	},
 
 	render: function(data) {
-		this.$el.html( templates.localBike(data) )
+		this.$el.html( templates.localMetro(data) )
+	},
+})
+
+var LocalBusRouteInfo = Backbone.View.extend({
+
+	tagName: "div",
+
+	className: "station-view",
+
+	initialize: function(data) {
+		this.render(data)
 	},
 
-	updateCoordinates: function() {
-		var latitude = this.$el.find(".latitude").val()
-		var longitiude = this.$el.find(".longitude").val()
-
-		this.trigger("update-coordinates", latitude, longitude)
-	}
-
+	render: function(data) {
+		this.$el.html( templates.localBus(data) )
+	},
 })
+
+var FavMetroStationInfo = Backbone.View.extend({
+
+	tagName: "div",
+
+	className: "station-view",
+
+	initialize: function(data) {
+		this.render(data)
+	},
+
+	render: function(data) {
+		this.$el.html( templates.favMetro(data) )
+	},
+})
+
+var FavBikeStationInfo = Backbone.View.extend({
+
+	tagName: "div",
+
+	className: "station-view",
+
+	initialize: function(data) {
+		this.render(data)
+	},
+
+	render: function(data) {
+		this.$el.html( templates.favBike(data) )
+	},
+})
+
+var FavBusStopInfo = Backbone.View.extend({
+
+	tagName: "div",
+
+	className: "station-view",
+
+	initialize: function(data) {
+		this.render(data)
+	},
+
+	render: function(data) {
+		this.$el.html( templates.favBus(data) )
+	},
+})
+
 
 
 

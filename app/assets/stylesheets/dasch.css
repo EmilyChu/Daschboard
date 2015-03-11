@@ -4,18 +4,48 @@
   box-sizing: border-box;
 }
 
+.notice {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	font-family: Helvetica;
+	font-size: 8px;
+	font-color: black;
+}
+
 .localContainer {
 	width: 100%;
 	height: 65vh;
+	background-color: black;
 }
 
 .localMetroContainer {
 	width: 33%;
 	height: 100%;
 	display: inline-block;
-	border-style: solid;
-	border-width: 1px;
-	border-color: black;
+	vertical-align: top;
+	background-color: #DADDE1;
+	border-bottom-style: solid;
+	border-bottom-color: #798B9D;
+	border-bottom-width: 30px;
+}
+
+.metroHeader {
+	font-family: Helvetica;
+	color: #601B10;
+	padding: 20px;
+}
+
+.info {
+	height: 80%;
+	background-color: white;
+	font-family: Helvetica;
+	font-size: 16px;
+	line-height: 1.5;
+	margin-left: 20px;
+	margin-right: 20px;
+	padding: 10px;
+	overflow-y: scroll;
 }
 
 .localMidContainer {
@@ -36,9 +66,11 @@
 	width: 100%;
 	height: 60%%;
 	display: block;
-	border-style: solid;
-	border-width: 1px;
-	border-color: black;
+	vertical-align: top;
+	background-color: #EF2E2F;
+	border-bottom-style: solid;
+	border-bottom-color: #C61F02;
+	border-bottom-width: 30px;
 }
 
 .bikeHeader {
@@ -67,54 +99,55 @@
 	width: 33%;
 	height: 100%;
 	display: inline-block;
-	border-style: solid;
-	border-width: 1px;
-	border-color: black;
+	vertical-align: top;
+	background-color: #37589F;
+	border-bottom-style: solid;
+	border-bottom-color: #1E2B5F;
+	border-bottom-width: 30px;
+}
+
+.busHeader {
+	font-family: Helvetica;
+	color: #95111F;
+	padding: 20px;
 }
 
 .favContainer {
 	width: 100%;
 	height: 35vh;
 	position: relative;
+	background-color: black;
 }
 
 .favMetroContainer {
 	width: 33%;
 	height: 100%;
 	display: inline-block;
-	border-style: solid;
-	border-width: 1px;
-	border-color: black;
-}
-
-.bikeContainer {
-	width: 33%;
-	height: 100%;
-	display: inline-block;
-	background-color: #EF2E2F;
+	vertical-align: top;
+	background-color: #DADDE1;
+	border-bottom-style: solid;
+	border-bottom-color: #798B9D;
+	border-bottom-width: 30px;
 }
 
 .favBikeContainer {
-	height: 80%;
-	background-color: white;
-	font-family: Helvetica;
-	font-size: 16px;
-	line-height: 1.5;
-	margin-left: 20px;
-	margin-right: 20px;
-	padding: 10px;
-	overflow-y: scroll;
-}
-
-.station-view {
-	overflow-y: scroll;
+	width: 33%;
+	height: 100%;
+	display: inline-block;
+	vertical-align: top;
+	background-color: #EF2E2F;
+	border-bottom-style: solid;
+	border-bottom-color: #EF2E2F;
+	border-bottom-width: 30px;
 }
 
 .favBusContainer {
 	width: 33%;
 	height: 100%;
 	display: inline-block;
-	border-style: solid;
-	border-width: 1px;
-	border-color: black;	
+	vertical-align: top;
+	background-color: #37589F;
+	border-bottom-style: solid;
+	border-bottom-color: #1E2B5F;
+	border-bottom-width: 30px;	
 }

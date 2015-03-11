@@ -6,51 +6,126 @@
 		<%= javascript_include_tag 'application' %>
 	</head>
 	<body>
-		<div class="localContainer" id="localContainer">
-			<div class="localMetroContainer" id="localMetroContainer">
+		<div class="localContainer">
+			<div class="localMetroContainer">
+				<div class="metroHeader">Local Metro Stations
+				</div>
+				<div class="info" id="localMetroInfo">
+				</div>
 			</div>
-			<div class="localMidContainer" id="localMidContainer">
+			<div class="localMidContainer">
 				<div class="titleContainer" id="titleContainer">
 				</div>
-				<div class="localBikeContainer" id="localBikeContainer">
+				<div class="localBikeContainer">
+					<div class="bikeHeader">Local Bike Station
+					</div>
+					<div class="info" id="localBikeInfo">
+					</div>
 				</div>
 			</div>
-			<div class="localBusContainer" id="localBusContainer">
+			<div class="localBusContainer">
+				<div class="busHeader">Local Bus Stops
+				</div>
+				<div class="info" id="localBusInfo">
+				</div>
 			</div>
-		</div>
-		<div class="favContainer" id="favContainer">
-			<div class="favMetroContainer" id="favMetroContainer">
+		<div class="favContainer">
+			<div class="favMetroContainer">
+				<div class="metroHeader">Favorite Metro Stations
+				</div>
+				<div class="info" id="favMetroInfo">
+				</div>
 			</div>
-			<div class="bikeContainer">
+			<div class="favBikeContainer">
 				<div class="bikeHeader">Favorite Bikeshare Stations
 				</div>
-				<div class="favBikeContainer" id="favBikeContainer">
+				<div class="info" id="favBikeInfo">
 				</div>
 			</div>
-			<div class="favBusContainer" id="favBusContainer">
+			<div class="favBusContainer">
+				<div class="busHeader">Favorite Bus Stops
+				</div>
+				<div class="info" id="favBusInfo">
+				</div>
 			</div>
 		</div>		
 		<script type="x-handlebars-template" id="localMetroTemplate">
-
+			<div class="title">
+				Station: <div class="name">{{ station }}</div>
+			</div>
+			<div class="info">
+				Line: <div class="number">{{ line }}</div>
+			</div>
+			<div class="info">
+				Arriving in: <div class="number">{{ arrival }}</div>
+			</div>
+			<div> class="info">
+				Train desination: <div class="name">{{ destination }}</div>
+			</div>
 		</script>
 		<script type="x-handlebars-template" id="localBikeTemplate">
-			<div class="localBikeStation">
-				Station location: <div class="address">{{ address }}</div>
+			<div class="title">
+				Station location: <div class="name">{{ address }}</div>
 			</div>
-			<div class="bikesAvailable">
-				Bikes available: <div class="number">{{ availableBikes }}</div>
+			<div class="info">
+				Available bikes: <div class="name">{{ availableBikes }}</div>
 			</div>
-			<div class="docksAvailable">
-				Docks available: <div class="number">{{ availableDocks }}</div>
+			<div class="info">
+				Open docks: <div class="number">{{ availableDocks }}</div>
 			</div>
 		</script>
 		<script type="x-handlebars-template" id="localBusTemplate">
+			<div class="title">
+				Stop location: <div class="name">{{ stop }}</div>
+			</div>
+			<div class="info">
+				Route: <div class="name">{{ route }}</div>
+			</div>
+			<div class="info">
+				Arriving in: <div class="number">{{ arrival }}</div>
+			</div>
+			<div class="info">
+				Destination: <div class="name">{{ destination }}</div>
+			</div>
 		</script>
 		<script type="x-handlebars-template" id="favMetroTemplate">
+			<div class="title">
+				Station: <div class="name">{{ station }}</div>
+			</div>
+			<div class="info">
+				Line: <div class="number">{{ line }}</div>
+			</div>
+			<div class="info">
+				Arriving in: <div class="number">{{ arrival }}</div>
+			</div>
+			<div> class="info">
+				Train desination: <div class="name">{{ destination }}</div>
+			</div>
 		</script>
 		<script type="x-handlebars-template" id="favBikeTemplate">
+			<div class="title">
+				Station location: <div class="name">{{ address }}</div>
+			</div>
+			<div class="info">
+				Available bikes: <div class="name">{{ availableBikes }}</div>
+			</div>
+			<div class="info">
+				Open docks: <div class="number">{{ availableDocks }}</div>
+			</div>
 		</script>
 		<script type="x-handlebars-template" id="favBusTemplate">
+			<div class="title">
+				Stop location: <div class="name">{{ stop }}</div>
+			</div>
+			<div class="info">
+				Route: <div class="name">{{ route }}</div>
+			</div>
+			<div class="info">
+				Arriving in: <div class="number">{{ arrival }}</div>
+			</div>
+			<div class="info">
+				Destination: <div class="name">{{ destination }}</div>
+			</div>
 		</script>
 	</body>
 </html>
